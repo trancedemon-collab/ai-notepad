@@ -1,0 +1,358 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --gtk-bg-canvas: #242424;
+    --gtk-bg-header: #2d2d2d;
+    --gtk-bg-card: #303030;
+    --gtk-border: #3d3d3d;
+    --gtk-text-main: #ffffff;
+    --gtk-text-muted: #9a9996;
+    --gtk-accent: #3584e4;
+    --gtk-accent-hover: #1c71d8;
+    --gtk-input-bg: #1e1e1e;
+    --gtk-grid-dot: rgba(255, 255, 255, 0.1);
+  }
+
+  html.gtk-light {
+    --gtk-bg-canvas: #f6f5f4;
+    --gtk-bg-header: #e8e6e3;
+    --gtk-bg-card: #ffffff;
+    --gtk-border: #d0cdca;
+    --gtk-text-main: #2e3436;
+    --gtk-text-muted: #5e6c70;
+    --gtk-accent: #3584e4;
+    --gtk-accent-hover: #1c71d8;
+    --gtk-input-bg: #ffffff;
+    --gtk-grid-dot: rgba(0, 0, 0, 0.12);
+  }
+
+  html.gtk-dark {
+    --gtk-bg-canvas: #242424;
+    --gtk-bg-header: #2d2d2d;
+    --gtk-bg-card: #303030;
+    --gtk-border: #3d3d3d;
+    --gtk-text-main: #ffffff;
+    --gtk-text-muted: #9a9996;
+    --gtk-accent: #3584e4;
+    --gtk-accent-hover: #1c71d8;
+    --gtk-input-bg: #1e1e1e;
+    --gtk-grid-dot: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Theme helper classes */
+.gtk-theme-bg-canvas {
+  background-color: var(--gtk-bg-canvas);
+}
+
+.gtk-theme-bg-header {
+  background-color: var(--gtk-bg-header);
+  border-color: var(--gtk-border);
+}
+
+.gtk-theme-bg-card {
+  background-color: var(--gtk-bg-card);
+  border-color: var(--gtk-border);
+  color: var(--gtk-text-main);
+}
+
+.gtk-theme-text-main {
+  color: var(--gtk-text-main);
+}
+
+.gtk-theme-text-muted {
+  color: var(--gtk-text-muted);
+}
+
+/* Light theme overrides for ALL components when html has gtk-light */
+html.gtk-light,
+html.gtk-light body,
+html.gtk-light .app-container {
+  background-color: #f6f5f4 !important;
+  color: #2e3436 !important;
+}
+
+/* Header & Navigation in Light Mode */
+html.gtk-light header {
+  background-color: rgba(232, 230, 227, 0.98) !important;
+  border-color: #d0cdca !important;
+  color: #2e3436 !important;
+}
+
+html.gtk-light header h1 {
+  color: #2e3436 !important;
+}
+
+html.gtk-light header p {
+  color: #5e6c70 !important;
+}
+
+html.gtk-light header input#search-notes-input {
+  background-color: #ffffff !important;
+  border-color: #ccc7c1 !important;
+  color: #2e3436 !important;
+}
+
+html.gtk-light header input#search-notes-input::placeholder {
+  color: #77767b !important;
+}
+
+/* Header Buttons, Pill Groups & Dropdowns in Light Mode */
+html.gtk-light header .bg-stone-800\/90,
+html.gtk-light header .bg-stone-800,
+html.gtk-light header .bg-stone-800\/80,
+html.gtk-light header .bg-stone-900 {
+  background-color: #ffffff !important;
+  border-color: #d0cdca !important;
+  color: #2e3436 !important;
+}
+
+html.gtk-light header button {
+  color: #2e3436 !important;
+}
+
+html.gtk-light header button:hover {
+  background-color: #f0eee9 !important;
+}
+
+html.gtk-light header .bg-stone-700 {
+  background-color: #e0deda !important;
+  color: #1c71d8 !important;
+}
+
+/* Dropdown Menus in Light Mode */
+html.gtk-light .bg-stone-900,
+html.gtk-light .bg-stone-950 {
+  background-color: #ffffff !important;
+  border-color: #d0cdca !important;
+  color: #2e3436 !important;
+}
+
+html.gtk-light .hover\:bg-stone-800:hover,
+html.gtk-light .hover\:bg-stone-750:hover {
+  background-color: #f0eee9 !important;
+}
+
+/* Canvas View in Light Mode */
+html.gtk-light #infinite-canvas-board {
+  background-color: #f6f5f4 !important;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.15) 1px, transparent 1px) !important;
+}
+
+html.gtk-light #infinite-canvas-board .absolute.top-4.left-4 {
+  background-color: #ffffff !important;
+  border-color: #d0cdca !important;
+  color: #2e3436 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+html.gtk-light #infinite-canvas-board .absolute.top-4.left-4 button {
+  color: #2e3436 !important;
+}
+
+html.gtk-light #infinite-canvas-board .absolute.top-4.left-4 button:hover {
+  background-color: #f0eee9 !important;
+}
+
+html.gtk-light #infinite-canvas-board .bg-stone-800 {
+  background-color: #d0cdca !important;
+}
+
+/* Grid View Empty State in Light Mode */
+html.gtk-light .w-16.h-16.bg-stone-900 {
+  background-color: #ffffff !important;
+  border-color: #d0cdca !important;
+  color: #5e6c70 !important;
+}
+
+html.gtk-light h3.text-stone-200 {
+  color: #2e3436 !important;
+}
+
+html.gtk-light p.text-stone-400 {
+  color: #5e6c70 !important;
+}
+
+/* Note Cards in Light Mode */
+html.gtk-light [id^="note-card-"] {
+  background-color: #ffffff !important;
+  border-color: #d0cdca !important;
+  color: #2e3436 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.gtk-light [id^="note-card-"] h3 {
+  color: #2e3436 !important;
+}
+
+html.gtk-light [id^="note-card-"] .font-mono {
+  color: #2e3436 !important;
+}
+
+html.gtk-light [id^="note-card-"] .bg-stone-950\/60,
+html.gtk-light [id^="note-card-"] .bg-stone-800 {
+  background-color: #f6f5f4 !important;
+  border-color: #d0cdca !important;
+  color: #5e6c70 !important;
+}
+
+html.gtk-light [id^="note-card-"] button {
+  color: #2e3436 !important;
+}
+
+html.gtk-light [id^="note-card-"] button:hover {
+  background-color: #e8e6e3 !important;
+}
+
+/* Note Card Colored Headers in Light Mode */
+html.gtk-light [id^="note-card-"] .bg-stone-800 {
+  background-color: #f0eee9 !important;
+  color: #2e3436 !important;
+}
+
+/* Plain Editor Modal in Light Mode */
+html.gtk-light .fixed.inset-0.bg-stone-950\/80 {
+  background-color: rgba(0, 0, 0, 0.35) !important;
+}
+
+html.gtk-light .editor-modal-container {
+  background-color: #ffffff !important;
+  border-color: #d0cdca !important;
+  color: #2e3436 !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15) !important;
+}
+
+html.gtk-light .editor-modal-header {
+  background-color: #f6f5f4 !important;
+  border-color: #d0cdca !important;
+  color: #2e3436 !important;
+}
+
+html.gtk-light .editor-modal-header h1,
+html.gtk-light .editor-modal-header input {
+  color: #2e3436 !important;
+  background-color: transparent !important;
+}
+
+html.gtk-light .editor-modal-header .text-stone-400,
+html.gtk-light .editor-modal-header .text-stone-500 {
+  color: #5e6c70 !important;
+}
+
+html.gtk-light .editor-modal-toolbar,
+html.gtk-light .editor-modal-container [class*="bg-stone-950"],
+html.gtk-light .editor-modal-container [class*="bg-stone-900"] {
+  background-color: #f6f5f4 !important;
+  border-color: #d0cdca !important;
+  color: #2e3436 !important;
+}
+
+html.gtk-light .editor-modal-container button {
+  color: #2e3436 !important;
+}
+
+html.gtk-light .editor-modal-container button.bg-stone-800,
+html.gtk-light .editor-modal-container div.bg-stone-800 {
+  background-color: #e8e6e3 !important;
+  border-color: #d0cdca !important;
+  color: #2e3436 !important;
+}
+
+html.gtk-light .editor-modal-container button.bg-stone-800:hover {
+  background-color: #d0cdca !important;
+}
+
+html.gtk-light textarea#notepad-textarea {
+  background-color: #ffffff !important;
+  color: #2e3436 !important;
+}
+
+html.gtk-light textarea#notepad-textarea::placeholder {
+  color: #888685 !important;
+}
+
+html.gtk-light .editor-modal-container input#custom-ai-instruction-input {
+  background-color: #ffffff !important;
+  border-color: #d0cdca !important;
+  color: #2e3436 !important;
+}
+
+html.gtk-light .editor-modal-container input#notepad-tags-input {
+  background-color: transparent !important;
+  color: #2e3436 !important;
+}
+
+html.gtk-light .editor-modal-container input#notepad-tags-input::placeholder {
+  color: #77767b !important;
+}
+
+html.gtk-light .editor-modal-container .text-stone-100,
+html.gtk-light .editor-modal-container .text-stone-200,
+html.gtk-light .editor-modal-container .text-stone-300 {
+  color: #2e3436 !important;
+}
+
+html.gtk-light .editor-modal-container .text-stone-400,
+html.gtk-light .editor-modal-container .text-stone-500,
+html.gtk-light .editor-modal-container .text-stone-600 {
+  color: #5e6c70 !important;
+}
+
+/* AI Assistant Drawer in Light Mode */
+html.gtk-light .ai-drawer-container {
+  background-color: #f6f5f4 !important;
+  border-color: #d0cdca !important;
+  color: #2e3436 !important;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+html.gtk-light .ai-drawer-header {
+  background-color: #e8e6e3 !important;
+  border-color: #d0cdca !important;
+  color: #2e3436 !important;
+}
+
+html.gtk-light .ai-drawer-header p {
+  color: #5e6c70 !important;
+}
+
+html.gtk-light .ai-drawer-msg-assistant {
+  background-color: #ffffff !important;
+  border-color: #d0cdca !important;
+  color: #2e3436 !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.gtk-light .ai-drawer-msg-assistant pre,
+html.gtk-light .ai-drawer-msg-assistant code {
+  background-color: #e8e6e3 !important;
+  color: #2e3436 !important;
+  border-color: #d0cdca !important;
+}
+
+html.gtk-light .ai-drawer-container button.bg-stone-800 {
+  background-color: #ffffff !important;
+  border-color: #d0cdca !important;
+  color: #2e3436 !important;
+}
+
+html.gtk-light .ai-drawer-container button.bg-stone-800:hover {
+  background-color: #e8e6e3 !important;
+}
+
+html.gtk-light .ai-drawer-input-area {
+  background-color: #e8e6e3 !important;
+  border-color: #d0cdca !important;
+}
+
+html.gtk-light .ai-drawer-input-area input {
+  background-color: #ffffff !important;
+  border-color: #d0cdca !important;
+  color: #2e3436 !important;
+}
+
+html.gtk-light .ai-drawer-input-area input::placeholder {
+  color: #77767b !important;
+}
+

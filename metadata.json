@@ -1,0 +1,6 @@
+{
+  "name": "AI Canvas Notepad",
+  "description": "A plain text notepad featuring canvas & grid views, inline AI triggers (polish, format, remove whitespace), notes archiving, and an AI agent to manage, organize, and auto-name notes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
